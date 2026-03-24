@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background: #ffe6f0;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #ff1493;
+    }
+    #message {
+      margin-top: 30px;
+      font-size: 28px;
+      color: #d10068;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click the Button to Wish!</h1>
+  <button onclick="wishBirthday()">🎉 Wish Happy Birthday 🎉</button>
+  <div id="message"></div>
+
+  <script>
+    function wishBirthday() {
+      document.getElementById('message').innerText = "🎂 Happy Birthday! 🎂";
+    }
+  </script>
+
+</body>
+</html>
