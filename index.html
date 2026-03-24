@@ -3,43 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> clock it</title>
+  <title>Special Purple Message 💜</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       text-align: center;
       padding-top: 50px;
-      background: #800080;
+      background: linear-gradient(135deg, #8e44ad, #9b59b6);
+      color: #fff;
+      overflow: hidden;
+      transition: background 1s;
     }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px #00000033;
+    }
+
     button {
-      padding: 15px 25px;
+      padding: 15px 35px;
       font-size: 18px;
-      background-color: #ff69b4;
-      color: purple;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
+      background-color: #9b59b6;
+      color: white;
       cursor: pointer;
-      transition: 0.3s;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s, background-color 0.3s;
     }
+
     button:hover {
-      background-color: #ff1493;
+      background-color: #8e44ad;
+      transform: scale(1.1);
     }
+
     #message {
-      margin-top: 30px;
-      font-size: 28px;
-      color:#E6E6FA;
+      margin-top: 50px;
+      font-size: 24px;
+      line-height: 1.5;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
     }
+
+    #message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hearts animation */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff66cc;
+      transform: rotate(45deg);
+      animation: float 3s linear forwards;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff66cc;
+      border-radius: 50%;
+    }
+
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart:after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-300px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <h1>Click the Button to Wish!</h1>
-  <button onclick="wishBirthday()">click me shinunu </button>
-  <div id="message"></div>
+  <h1>Click to Reveal Your Special Message 💜</h1>
+  <button onclick="showMessage()">click Me Shinunu </button>
+
+  <div id="message">
+    You are incredible! 🌟<br>
+    Being around you is pure joy.<br>
+    Your smile lights up the world, <br>
+    and your energy is absolutely contagious. 💜<br>
+    Simply put, you are amazing and truly lovable! 💫
+  </div>
 
   <script>
-    function wishBirthday() {
-      document.getElementById('message').innerText = "lucky that i met you girl";
+    function showMessage() {
+      const msg = document.getElementById('message');
+      msg.classList.add('show');
+
+      // Change background for extra effect
+      document.body.style.background = 'linear-gradient(135deg, #6a0dad, #9b59b6)';
+
+      // Generate floating hearts
+      for (let i = 0; i < 30; i++) {
+        createHeart();
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = (2 + Math.random() * 2) + 's';
+      heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 3000);
     }
   </script>
 
